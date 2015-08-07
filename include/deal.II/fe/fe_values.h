@@ -1352,8 +1352,8 @@ namespace internal
  * @author Wolfgang Bangerth, 1998, 2003, Guido Kanschat, 2001
  */
 template <int dim, int spacedim>
-class FEValuesBase : protected internal::FEValues::MappingRelatedData<dim,spacedim>,
-  protected internal::FEValues::FiniteElementRelatedData<dim,spacedim>,
+class FEValuesBase : protected dealii::internal::FEValues::MappingRelatedData<dim, spacedim>,
+  protected dealii::internal::FEValues::FiniteElementRelatedData<dim, spacedim>,
   public Subscriptor
 {
 public:
@@ -1465,6 +1465,11 @@ public:
    *
    * The same holds for the arguments of this function as for the
    * shape_value() function.
+   *
+   * @param function_no Number of the shape function to be evaluated.
+   *
+   * @param quadrature_point Number of the quadrature point at which function is to be
+   * evaluated.
    *
    * @dealiiRequiresUpdateFlags{update_gradients}
    */
@@ -2334,7 +2339,7 @@ protected:
   /**
    * Internal data of finite element.
    */
-  SmartPointer<typename Mapping<dim,spacedim>::InternalDataBase,FEValuesBase<dim,spacedim> > fe_data;
+  SmartPointer<typename FiniteElement<dim,spacedim>::InternalDataBase,FEValuesBase<dim,spacedim> > fe_data;
 
   /**
    * Original update flags handed to the constructor of FEValues.

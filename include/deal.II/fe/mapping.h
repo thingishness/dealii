@@ -802,11 +802,11 @@ private:
    */
   virtual
   CellSimilarity::Similarity
-  fill_fe_values (const typename Triangulation<dim,spacedim>::cell_iterator &cell,
-                  const CellSimilarity::Similarity                           cell_similarity,
-                  const Quadrature<dim>                                     &quadrature,
-                  const InternalDataBase                                    &internal_data,
-                  internal::FEValues::MappingRelatedData<dim,spacedim>      &output_data) const = 0;
+  fill_fe_values (const typename Triangulation<dim,spacedim>::cell_iterator    &cell,
+                  const CellSimilarity::Similarity                              cell_similarity,
+                  const Quadrature<dim>                                        &quadrature,
+                  const InternalDataBase                                       &internal_data,
+                  dealii::internal::FEValues::MappingRelatedData<dim,spacedim> &output_data) const = 0;
 
   /**
    * This function is the equivalent to Mapping::fill_fe_values(),
@@ -835,11 +835,11 @@ private:
    *   @p internal_data object.
    */
   virtual void
-  fill_fe_face_values (const typename Triangulation<dim,spacedim>::cell_iterator &cell,
-                       const unsigned int                                         face_no,
-                       const Quadrature<dim-1>                                   &quadrature,
-                       const InternalDataBase                                    &internal_data,
-                       internal::FEValues::MappingRelatedData<dim,spacedim>      &output_data) const = 0;
+  fill_fe_face_values (const typename Triangulation<dim,spacedim>::cell_iterator    &cell,
+                       const unsigned int                                            face_no,
+                       const Quadrature<dim-1>                                      &quadrature,
+                       const InternalDataBase                                       &internal_data,
+                       dealii::internal::FEValues::MappingRelatedData<dim,spacedim> &output_data) const = 0;
 
   /**
    * This function is the equivalent to Mapping::fill_fe_values(),
@@ -871,12 +871,12 @@ private:
    *   @p internal_data object.
    */
   virtual void
-  fill_fe_subface_values (const typename Triangulation<dim,spacedim>::cell_iterator &cell,
-                          const unsigned int                                         face_no,
-                          const unsigned int                                         subface_no,
-                          const Quadrature<dim-1>                                   &quadrature,
-                          const InternalDataBase                                    &internal_data,
-                          internal::FEValues::MappingRelatedData<dim,spacedim>      &output_data) const = 0;
+  fill_fe_subface_values (const typename Triangulation<dim,spacedim>::cell_iterator     &cell,
+                          const unsigned int                                             face_no,
+                          const unsigned int                                             subface_no,
+                          const Quadrature<dim-1>                                       &quadrature,
+                          const InternalDataBase                                        &internal_data,
+                          dealii::internal::FEValues::MappingRelatedData<dim, spacedim> &output_data) const = 0;
 
   /**
    * Give class @p FEValues access to the private <tt>get_...data</tt> and
